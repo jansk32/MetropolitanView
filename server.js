@@ -3,17 +3,17 @@ const axios = require('axios');
 
 var app = express();
 
-var objIds = []
+var objIds = {}
 
 // get ids with primary image 
-app.get("/", function (req,res) {
-    axios("https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers")
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err))
+app.get("/", async function (req,res) {
+    var tmp = await axios("https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers")
+    .then((resp) => res.send(resp.data.objectIDs))
+    .catch((err) => res.send(err))
 
 })
 
-app.get("/arts", function(req,res) {
+app.get("/:id", function(req,res) {
 
 })
 
