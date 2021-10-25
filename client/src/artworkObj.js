@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 function ArtWorkObj(props) {
@@ -15,7 +16,7 @@ function ArtWorkObj(props) {
     return(
         <div style={{width: "100%"}}>
             <p>{artData.title}</p>
-            <img src={artData.primaryImageSmall} alt={artData.title}></img>
+            <Link to={`art/${artData.objectID}`}><img src={artData.primaryImageSmall} alt={artData.title}></img></Link>
         </div>
     )
 

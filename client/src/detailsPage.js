@@ -1,12 +1,13 @@
 import React, {useState,useEffect} from "react";
+import { useParams } from "react-router";
 import axios from 'axios';
 
-function DetailsPage(props) {
-
-    var [details, setDetails] = useState(props.details)
+function DetailsPage() {
+    var params = useParams()
+    var [details, setDetails] = useState({})
 
     useEffect(() => {
-        axios.get("http://localhost:8080/53176")
+        axios.get("http://localhost:8080/" + params.id)
         .then((resp) => {
           setDetails(resp.data);
         })
