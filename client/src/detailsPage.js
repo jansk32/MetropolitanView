@@ -23,7 +23,8 @@ function DetailsPage() {
             <div>
             <img src={details.primaryImageSmall} alt={details.title} />
             </div>
-            <div style={{paddingTop: "15%", paddingLeft:"10%", width:"50%", fontSize: "20px"}}>
+            
+            <div className="detailsBox">
             <table>
                 <tr>
                     <td><b>Medium: </b></td>

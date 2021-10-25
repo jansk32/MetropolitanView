@@ -34,11 +34,14 @@ function Home() {
   return (
     (isLoading &&  
     <div>
-      <h1>Gallery</h1>
+      <center>
+      <h1 className="homeHeading">Gallery</h1>
+      </center>
       <div className="gallery">
       {artData.slice(currentInd, currentInd + 3).map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
     </div>
-    </div>)
+    </div>
+    )
   );
 }
 
