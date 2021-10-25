@@ -1,6 +1,7 @@
 import ArtWorkObj from "./artworkObj";
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import DetailsPage from "./detailsPage";
 import './App.css'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:8080")
+    axios.get("http://localhost:8080/53176")
     .then((resp) => {
       setArts(resp.data);
       //setShown(resp.data.slice(currentInd, currentInd + 3))
@@ -33,10 +34,7 @@ function App() {
   return (
     (isLoading &&  
     <div>
-      <h1>Gallery</h1>
-      <div className="gallery">
-      {artData.slice(currentInd, currentInd + 3).map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
-    </div>
+      <DetailsPage details={artData}/>
     </div>)
   );
 }
