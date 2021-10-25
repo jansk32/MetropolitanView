@@ -1,9 +1,17 @@
 import React, {useState,useEffect} from "react";
+import axios from 'axios';
 
 function DetailsPage(props) {
 
     var [details, setDetails] = useState(props.details)
 
+    useEffect(() => {
+        axios.get("http://localhost:8080/53176")
+        .then((resp) => {
+          setDetails(resp.data);
+        })
+        .catch((err) => console.error(err))
+      }, [])
 
     return(
         <div style={{ paddingLeft: "5%"}}>
