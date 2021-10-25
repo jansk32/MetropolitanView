@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 
 function ArtWorkObj(props) {
     var [artData, setArtData] = useState({})
 
     useEffect(() => {
-        fetch("http://localhost:8080/" + props.artwork)
-        .then((resp) => {
-            console.log(resp)
-            setArtData(resp)
-        })
+        axios.get("http://localhost:8080/" + props.artwork)
+        .then((resp) => setArtData(resp.data))
         .catch((err) => setArtData({
             primaryImage: "https://i2.wp.com/atlassianblog.wpengine.com/wp-content/uploads/2017/12/screen-shot-2017-11-16-at-3.50.20-pm-1.png?resize=640%2C362&ssl=1"
         }))
@@ -16,7 +14,8 @@ function ArtWorkObj(props) {
 
     return(
         <div style={{width: "100%"}}>
-            <img src={artData.primaryImage} alt='artwork'></img>
+            <p>{props.artwork}</p>
+            <img src={artData.primaryImageSmall} alt='artwork'></img>
         </div>
     )
 

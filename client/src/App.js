@@ -5,22 +5,26 @@ import axios from 'axios';
 function App() {
 
   var [artData, setArts] = useState([]);
+  var [shownData, setShown] = useState([]);
   var [isLoading, setIsLoading] = useState(false)
-  var [currentInd, setCurrentId] = useState(0)
+  var [currentInd, setCurrentInd] = useState(0)
 
 
   useEffect(() => {
     axios.get("http://localhost:8080")
     .then((resp) => {
       setArts(resp.data);
+      setShown(resp.data.slice(currentInd, currentInd + 3))
       setIsLoading(true)
     })
     .catch((err) => console.error(err))
   }, [])
 
+
+
   return (
     (isLoading &&  <div className="App">
-      {artData.slice(currentInd, currentInd+ 3).map((obj) => <ArtWorkObj artwork={obj} />)}
+      {shownData.map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
     </div>)
   );
 }
