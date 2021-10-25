@@ -13,7 +13,10 @@ app.get("/", async function (req,res) {
 
 })
 
-app.get("/:id", function(req,res) {
+app.get("/:id", async function(req,res) {
+    var tmp = await axios("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + req.params.id)
+    .then((resp) => res.send(resp.data))
+    .catch((err) => res.send(err))
 
 })
 
