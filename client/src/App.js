@@ -20,10 +20,12 @@ function App() {
     .catch((err) => console.error(err))
   }, [])
 
-
+  setInterval(() => {
+    setCurrentInd(currentInd + 1)
+  }, 10000)
 
   return (
-    (isLoading &&  <div className="App">
+    (isLoading &&  <div style={{display: "inline-block"}}>
       {shownData.map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
     </div>)
   );
