@@ -15,14 +15,19 @@ function App() {
     axios.get("http://localhost:8080")
     .then((resp) => {
       setArts(resp.data);
-      setShown(resp.data.slice(currentInd, currentInd + 3))
+      //setShown(resp.data.slice(currentInd, currentInd + 3))
       setIsLoading(true)
     })
     .catch((err) => console.error(err))
   }, [])
 
   setInterval(() => {
+    if (currentInd < artData.length - 2){
     setCurrentInd(currentInd + 1)
+    }else{
+      setCurrentInd(0)
+    }
+    //setShown(artData.slice(currentInd))
   }, 10000)
 
   return (
@@ -30,7 +35,7 @@ function App() {
     <div>
       <h1>Gallery</h1>
       <div className="gallery">
-      {shownData.map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
+      {artData.slice(currentInd, currentInd + 3).map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
     </div>
     </div>)
   );
