@@ -40,7 +40,8 @@ function Home() {
       <div className="gallery">
       {artData.slice(currentInd, currentInd + 3).map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
     </div>
-    </div>)
+    </div>
+    )
   );
 }
 

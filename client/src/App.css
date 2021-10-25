@@ -31,10 +31,21 @@
 .gallery{
   display:flex;
   padding-bottom: 10%;
-  width: 100%;
+  width: 90% !important;
 }
 
 .homeHeading{
   font-size: 70px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.detailsBox{
+  align-content: center;
+  width: 30%;
+  margin-left: 3%;
+  margin-top: 10%;
+  padding: 10%;
+  background-color: rgba(215, 224, 91, 0.3);
+  border: 1px solid black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
