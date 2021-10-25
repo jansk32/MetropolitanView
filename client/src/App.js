@@ -1,6 +1,7 @@
 import ArtWorkObj from "./artworkObj";
 import {useState, useEffect} from 'react'
 import axios from 'axios';
+import './App.css'
 
 function App() {
 
@@ -25,8 +26,12 @@ function App() {
   }, 10000)
 
   return (
-    (isLoading &&  <div style={{display: "inline-block"}}>
+    (isLoading &&  
+    <div>
+      <h1>Gallery</h1>
+      <div className="gallery">
       {shownData.map((obj) => <ArtWorkObj artwork={obj} key={obj}/>)}
+    </div>
     </div>)
   );
 }

@@ -14,7 +14,7 @@ function ArtWorkObj(props) {
 
     return(
         <div style={{width: "100%"}}>
-            <p>{props.artwork}</p>
+            <p>{artData.title}</p>
             <img src={artData.primaryImageSmall} alt='artwork'></img>
         </div>
     )
