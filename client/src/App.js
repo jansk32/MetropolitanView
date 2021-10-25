@@ -4,26 +4,23 @@ import axios from 'axios';
 
 function App() {
 
-  var [arts, setArts] = useState([]);
-  var [isLoading, setIsLoading] = useState(true)
+  var [artData, setArts] = useState([]);
+  var [isLoading, setIsLoading] = useState(false)
+  var [currentInd, setCurrentId] = useState(0)
 
 
   useEffect(() => {
-    fetch("http:localhost:8080/")
-    .then((data) => {
-      setArts([11922,
-        2032,
-        816522]);
-      setIsLoading(false)
-      console.log(data)
+    axios.get("http://localhost:8080")
+    .then((resp) => {
+      setArts(resp.data);
+      setIsLoading(true)
     })
     .catch((err) => console.error(err))
   }, [])
 
   return (
     (isLoading &&  <div className="App">
-      {arts.map((obj) => <ArtWorkObj artwork={obj} />
-      )}
+      {artData.slice(currentInd, currentInd+ 3).map((obj) => <ArtWorkObj artwork={obj} />)}
     </div>)
   );
 }
