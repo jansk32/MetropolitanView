@@ -14,7 +14,7 @@ var port = process.env.PORT || 8080;
 
 // get ids with primary image 
 app.get("/", async function (req,res) {
-    var tmp = await axios("https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers")
+    var tmp = await axios("https://collectionapi.metmuseum.org/public/collection/v1/search?departmentId=6&q=cat&hasImages=true")
     .then((resp) => res.send(resp.data.objectIDs))
     .catch((err) => res.send(err))
 
