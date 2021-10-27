@@ -5,7 +5,9 @@ function LoadingPage () {
 
     return(
         <div className="loadingScreen">
+            <center>
             <img className="loadingIcon" src={loading} alt="loading screen"/>
+            </center>
         </div>
     )
 }

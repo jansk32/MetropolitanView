@@ -2,14 +2,25 @@
   text-align: center;
 }
 
-.App-logo {
+.loadingIcon {
   height: 40vmin;
   pointer-events: none;
+  width: 20%;
+  height: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .loadingIcon {
+    animation: loading-icon-spin infinite 15s linear;
+  }
+}
+
+@keyframes loading-icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -62,4 +73,6 @@ justify-content: center;
 
 .loadingScreen{
   background-color: rgba(117, 117, 113, 0.589);
+  height: 100%;
+  width: 100%;
 }
