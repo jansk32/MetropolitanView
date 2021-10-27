@@ -30,8 +30,16 @@
 
 .gallery{
   display:flex;
-  padding-bottom: 10%;
-  width: 70% !important;
+  padding-bottom: 5%;
+  width: 100vw !important;
+}
+
+.galleryImg{
+  object-fit: fill !important;
+  max-width:100%;
+max-height:auto;
+justify-content: center;
+  align-items: center;
 }
 
 .homeHeading{
