@@ -54,10 +54,7 @@ justify-content: center;
   align-items: center;
 }
 
-.galleryImg:hover{
-  color: azure;
-  opacity: 0.5;
-}
+
 
 .homeHeading{
   font-size: 70px;
@@ -85,9 +82,10 @@ justify-content: center;
 
 .titleLink{
   background-color: bisque;
-  opacity: 0.4;
+  opacity: 0.4 !important;
+  padding-top: 50%;
   height: 100%;
   width: 100%;
   z-index: 3;
-  position: relative;
+  vertical-align: middle;
 }

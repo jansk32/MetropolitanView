@@ -28,12 +28,11 @@ function ArtWorkObj(props) {
       };
 
     return(
-        <div onMouseHover={onMouseHoverHandler} onMouseOut={onMouseOutHandler} style={{width: "100vw", height: "80vh"}}>
-            {isLoading ? <Link to={`art/${artData.objectID}`}>
-                {hover && <div className="titleLink">
+        <div className="marginImg" onMouseEnter={onMouseHoverHandler} onMouseLeave={onMouseOutHandler} style={{width: "100vw", height: "80vh"}}>
+            {hover && <center className="titleLink">
                     <h4>{artData.title}</h4>
-                    <p>Click to learn more...</p>
-                </div>}
+                </center>}
+            {isLoading ? <Link to={`art/${artData.objectID}`}>
                 <img className="galleryImg" src={artData.primaryImageSmall} alt={artData.title}></img></Link>
             : <LoadingPage />}
         </div>
