@@ -6,6 +6,7 @@ import axios from 'axios';
 function ArtWorkObj(props) {
     var [artData, setArtData] = useState({})
     var [isLoading, setLoading] = useState(false)
+    var [hover, setHover] = useState(false)
 
     useEffect(() => {
         axios.get("http://localhost:8080/" + props.artwork)
@@ -18,9 +19,22 @@ function ArtWorkObj(props) {
         }))
     })
 
+    const onMouseHoverHandler = (e) => {
+        setHover(true);
+    }
+
+    const onMouseOutHandler = (e) => {
+        setHover(false);
+      };
+
     return(
-        <div style={{width: "100vw", height: "80vh"}}>
-            {isLoading ? <Link to={`art/${artData.objectID}`}><img className="galleryImg" src={artData.primaryImageSmall} alt={artData.title}></img></Link>
+        <div className="marginImg" onMouseEnter={onMouseHoverHandler} onMouseLeave={onMouseOutHandler} style={{width: "100vw", height: "80vh"}}>
+            {hover && isLoading&& <center className="titleLink">
+                    <h2 >{artData.title}</h2>
+                    <p>Click for more details...</p>
+                </center>}
+            {isLoading ? <Link to={`art/${artData.objectID}`}>
+                <img className="galleryImg" src={artData.primaryImageSmall} alt={artData.title}></img></Link>
             : <LoadingPage />}
         </div>
     )
