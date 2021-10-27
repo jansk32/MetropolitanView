@@ -1,21 +1,24 @@
 import React, {useState,useEffect} from "react";
 import { useParams } from "react-router";
+import LoadingPage from "./loadingPage";
 import axios from 'axios';
 
 function DetailsPage() {
     var params = useParams()
     var [details, setDetails] = useState({})
+    var [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
         axios.get("http://localhost:8080/" + params.id)
         .then((resp) => {
           setDetails(resp.data);
+          setLoading(true);
         })
         .catch((err) => console.error(err))
       }, [])
 
     return(
-        <div style={{ paddingLeft: "5%"}}>
+        (isLoading ? <div style={{ paddingLeft: "5%"}}>
         <div>
             <h1>{details.title}</h1>
         </div>
@@ -24,7 +27,7 @@ function DetailsPage() {
             <img src={details.primaryImageSmall} alt={details.title} />
             </div>
             
-            <div className="detailsBox">
+             <div className="detailsBox">
             <table>
                 <tr>
                     <td><b>Medium: </b></td>
@@ -43,9 +46,9 @@ function DetailsPage() {
                     <td>{details.region ? details.region : "Unknown"}</td>
                 </tr>      
             </table>
-            </div>
+            </div> 
         </div>
-        </div>
+        </div> : <LoadingPage />)
     )
 
 }
