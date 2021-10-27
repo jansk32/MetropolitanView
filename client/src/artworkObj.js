@@ -29,8 +29,9 @@ function ArtWorkObj(props) {
 
     return(
         <div className="marginImg" onMouseEnter={onMouseHoverHandler} onMouseLeave={onMouseOutHandler} style={{width: "100vw", height: "80vh"}}>
-            {hover && <center className="titleLink">
-                    <h2>{artData.title}</h2>
+            {hover && isLoading&& <center className="titleLink">
+                    <h2 >{artData.title}</h2>
+                    <p>Click for more details...</p>
                 </center>}
             {isLoading ? <Link to={`art/${artData.objectID}`}>
                 <img className="galleryImg" src={artData.primaryImageSmall} alt={artData.title}></img></Link>
