@@ -59,3 +59,7 @@ justify-content: center;
   border: 1px solid black;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.loadingScreen{
+  background-color: rgba(117, 117, 113, 0.589);
+}
